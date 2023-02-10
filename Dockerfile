@@ -1,5 +1,4 @@
 FROM postgres
 
-COPY ./movies_data/movies.csv .
-USER root
-RUN chmod -R 777 .
+WORKDIR /csv/movies_data/
+COPY movies_data/ /csv/movies_data/

@@ -24,7 +24,7 @@ CREATE TABLE movies (
 
 --IMPORT CSV --- SET YOUR CSV PATH
 COPY movies(MOVIES, YEAR, GENRE, RATING, ONELINE, STARS,VOTES,RunTime,Gross)
-FROM '/var/lib/postgresql/data/movies.csv'
+FROM '/csv/movies_data/movies.csv'
 DELIMITER ','
 CSV HEADER;
 
