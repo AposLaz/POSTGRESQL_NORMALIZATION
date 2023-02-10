@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS movies CASCADE;
 DROP TABLE IF EXISTS critics CASCADE;
 DROP TABLE IF EXISTS description CASCADE;
 DROP TABLE IF EXISTS genre CASCADE;
-DROP TABLE IF EXISTS director CASCADE;
+DROP TABLE IF EXISTS directors CASCADE;
 DROP TABLE IF EXISTS stars CASCADE;
 DROP TABLE IF EXISTS dates CASCADE;
 DROP TABLE IF EXISTS costs CASCADE;
@@ -24,7 +24,7 @@ CREATE TABLE movies (
 
 --IMPORT CSV --- SET YOUR CSV PATH
 COPY movies(MOVIES, YEAR, GENRE, RATING, ONELINE, STARS,VOTES,RunTime,Gross)
-FROM 'D:\aplaz\movies.csv'
+FROM '/var/lib/postgresql/data/movies.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -253,7 +253,7 @@ UPDATE director_stars
 DROP TABLE IF EXISTS movies_info_delete_duplicates CASCADE;
 
 --CREATE TABLE DIRECTORS (SPLIT TABLE DIRECTOR_STARS)
-CREATE TABLE director (
+CREATE TABLE directors (
 	ID SERIAL,
 	Directors TEXT DEFAULT NULL,
 	director_info_id INT NOT NULL, 	--same as stars_id
@@ -267,7 +267,7 @@ CREATE TABLE director (
 	  REFERENCES movies_group(ID) ON DELETE CASCADE
 );
 
-INSERT INTO director
+INSERT INTO directors
 SELECT ROW_NUMBER() OVER(ORDER BY d.ID) as ID, d.directors, d.stars_id, m.movie_id
 	FROM director_stars as d
 	JOIN movies_info as m
@@ -419,7 +419,7 @@ DROP VIEW helper_critics;
 
 ALTER TABLE stars
   DROP COLUMN stars_info_id;
- ALTER TABLE director
+ ALTER TABLE directors
   DROP COLUMN director_info_id;
  	
 DROP TABLE IF EXISTS movies_info CASCADE;
