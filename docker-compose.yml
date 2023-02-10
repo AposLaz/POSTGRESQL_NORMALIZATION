@@ -12,7 +12,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /movies_data:/csv/movies_data/
+      - /movies_data:/var/lib/postgresql/data
       - ./movies_data/movies.sql:/docker-entrypoint-initdb.d/movies.sql
 
 
