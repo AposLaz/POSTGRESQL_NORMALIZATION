@@ -61,10 +61,6 @@ I take a dataset contained in a CSV file (called movies.csv), of movie informati
 ```
 2. Docker
 ```bash
-	$ docker-compose up	#deploy the database
-
-	# If you want to remove volumes then run
-	$ docker-compose down -v
 	$ docker-compose up
 
 	#then you have to configure pg_admin
