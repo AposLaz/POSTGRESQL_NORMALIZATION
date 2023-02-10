@@ -2,8 +2,7 @@
 
 I take a dataset contained in a CSV file (called movies.csv), of movie information, clean it and turn it into a nice, normalized set of tables.
 
-  ![image](https://user-images.githubusercontent.com/39645726/218030973-7557d121-2ec5-42cf-b7e8-13a1692764ae.png) 
-   <!-- ![image](https://user-images.githubusercontent.com/39645726/218031099-cadfb0c8-8c4e-4c16-aaf0-95ef98127b37.png) -->
+  ![image](https://user-images.githubusercontent.com/39645726/218030973-7557d121-2ec5-42cf-b7e8-13a1692764ae.png) ![image](https://user-images.githubusercontent.com/39645726/218031099-cadfb0c8-8c4e-4c16-aaf0-95ef98127b37.png)
 
 ## Tables
 
@@ -59,4 +58,22 @@ I take a dataset contained in a CSV file (called movies.csv), of movie informati
 
 	# Remove current origin repo
 	$ git remote remove origin  
+```
+2. Docker
+```bash
+	$ docker-compose up	#deploy the database
+
+	# If you want to remove volumes then run
+	$ docker-compose down -v
+	$ docker-compose up
+
+	#then you have to configure pg_admin
+	$ localhost:5050
+	$ username: admin@admin.com
+	$ password: root
+
+	#server
+	$ host: pg_container
+	$ username: root
+	$ password: root 
 ```
