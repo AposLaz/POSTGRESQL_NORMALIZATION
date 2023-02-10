@@ -1,0 +1,3 @@
+COPY CSV TO CONTAINER PATH
+
+docker cp ./movies_data/movies.csv pg_container:/var/lib/postgresql/data
